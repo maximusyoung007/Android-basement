@@ -45,16 +45,22 @@ public class FirstActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d("FirstActivity",this.toString());
         setContentView(R.layout.first_layout);
         Button button1 = (Button) findViewById(R.id.button_1);
         button1.setOnClickListener(new View.OnClickListener(){//设置一个监听器
             @Override
+            public void onClick(View v){
+                Intent intent = new Intent(FirstActivity.this,FirstActivity.class);
+                startActivity(intent);
+            }
+           /*  @Override
             //在活动销毁时返回一个结果给上一个活动
             public void onClick(View v)
             {
                 Intent intent = new Intent(FirstActivity.this,SecondActivity.class);
                 startActivityForResult(intent,1);
-            }
+            }*/
             /*@Override
             //pass a string from Firstactivity to Secondactivity
             public void onClick(View v)
