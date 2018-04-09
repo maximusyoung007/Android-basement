@@ -11,7 +11,12 @@ import android.widget.Button;
 import android.widget.Toast;
 import android.util.Log;
 
-public class FirstActivity extends AppCompatActivity {
+public class FirstActivity extends BaseActivity {
+    @Override
+    protected void onRestart(){
+        super.onRestart();
+        Log.d("FirstActivity","onRestart");
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main,menu);
@@ -45,15 +50,19 @@ public class FirstActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d("FirstActivity",this.toString());
+        Log.d("FirstActivity","Task id is" + getTaskId());
         setContentView(R.layout.first_layout);
         Button button1 = (Button) findViewById(R.id.button_1);
         button1.setOnClickListener(new View.OnClickListener(){//设置一个监听器
             @Override
             public void onClick(View v){
+                SecondActivity.actionStart(FirstActivity.this,"data1","data2");
+            }
+            /*@Override
+            public void onClick(View v){
                 Intent intent = new Intent(FirstActivity.this,FirstActivity.class);
                 startActivity(intent);
-            }
+            }*/
            /*  @Override
             //在活动销毁时返回一个结果给上一个活动
             public void onClick(View v)
