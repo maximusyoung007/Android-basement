@@ -64,10 +64,10 @@ public class MainActivity extends AppCompatActivity {
                         String author = cursor.getString(cursor.getColumnIndex("author"));
                         int pages = cursor.getInt(cursor.getColumnIndex("pages"));
                         double price = cursor.getDouble(cursor.getColumnIndex("price"));
-                        Log.d("MainActivity","book name is" + name);
-                        Log.d("MainActivity","book author is" + author);
-                        Log.d("MainActivity","book page is" + pages);
-                        Log.d("MainActivity","book price is" + price);
+                        Log.d("MainActivity","book name is " + name);
+                        Log.d("MainActivity","book author is " + author);
+                        Log.d("MainActivity","book page is " + pages);
+                        Log.d("MainActivity","book price is  " + price);
                     }while(cursor.moveToNext());
                 }cursor.close();
             }
